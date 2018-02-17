@@ -29,4 +29,32 @@ module.exports = (app) => {
     })
   });
 
+  router.put('/users/:id', (req, res) => {
+    if(!req.params.id)
+      return res.status(400).send('Bad parameters');
+
+    let tmpUser = req.body;
+
+    Users.update(parseInt(req.params.id, 10), tmpUser)
+      .then(user => {
+        return res.json(user);
+      })
+      .catch(err => {
+        return res.status(500).send(err);
+      });
+  });
+
+  router.delete('/users/:id', (req, res) => {
+    if(!req.params.id)
+      return res.status(400).send('Bad parameters');
+
+    Users.remove(parseInt(req.params.id, 10)).then(deletedUser => {
+      return res.json(deletedUser);
+    })
+    .catch(err => {
+      return res.status(500).send(err);
+    })
+  })
+
+  app.use('/', router);
 };

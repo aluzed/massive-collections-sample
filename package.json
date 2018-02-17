@@ -4,12 +4,20 @@
   "description": "A sample on how to use massive-collections",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node ./node_modules/mocha/bin/_mocha ./tests.js"
   },
   "author": "Alexandre PENOMBRE <aluzed@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "body-parser": "^1.18.2",
-    "massive": "^4.6.4"
+    "express": "^4.16.2",
+    "massive": "^4.6.5",
+    "massive-collections": "^1.1.9"
+  },
+  "devDependencies": {
+    "bluebird": "^3.5.1",
+    "chai": "^4.1.2",
+    "chai-http": "^3.0.0",
+    "mocha": "^5.0.1"
   }
 }

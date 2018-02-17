@@ -10,12 +10,12 @@ const config     = require('./config');
 const bodyParser = require('body-parser');
 
 // Init our database connection
-require('./core/init-database').then(db => {
+const server = require('./init-database').then(db => {
   // Add db into our app object
   app.set('db', db);
 
   // Init models
-  require('./core/init-models')(app);
+  require('./init-models')(app);
 
   app.use(bodyParser.json());
 
@@ -26,3 +26,6 @@ require('./core/init-database').then(db => {
     console.log('Server listening on ' + config.server.port);
   });
 });
+
+
+module.exports = server;

@@ -4,7 +4,6 @@
  * Author: Alexandre PENOMBRE <aluzed_AT_gmail.com>
  * Copyright (c) 2018
  */
-const { ColumnMissing } = require('massive-collections/errors.js');
 const Collection = require('massive-collections');
 
 module.exports = (app) => {
@@ -22,4 +21,4 @@ module.exports = (app) => {
   });
 
   return Users;
-});
+}
